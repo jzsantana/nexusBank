@@ -1,9 +1,10 @@
-import { View, Image, Text, TouchableOpacity, TextInput} from 'react-native'
+import { View, Image, Text, TouchableOpacity, TextInput, Pressable, ScrollView, TouchableWithoutFeedback, KeyboardAvoidingView } from 'react-native'
 import * as Animatable from 'react-native-animatable';
 import styles from "./styles"
 import { useFonts } from 'expo-font';
 
 
+// Entrar
 function SignIn() {
     const [fontsLoaded] = useFonts({
         'Archivo-Black': require('../../assets/fonts/Archivo-Black.ttf')
@@ -13,19 +14,41 @@ function SignIn() {
     }
 
     return (
-       <View style={styles.containerPrincipal} animation='fadeIn' delay={500}>
-        <Animatable.View  animation='fadeIn' delay={500}>
+        <View style={styles.containerPrincipal} animation='fadeIn' delay={500}>
+            <Animatable.View  animation='fadeIn' delay={500}>
+                <View style={styles.logo}>
+                    <Image source={require('./../../assets/NEXUS.png')} style={styles.imgLogo}/>
+                </View>
+                
+                <Animatable.View style={styles.containerForm} animation='fadeInUp' delay={500}>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Digite sua agência"
+                        keyboardType="numeric"
+                    ></TextInput>
+                    <TextInput 
+                        style={styles.input}
+                        placeholder="Digite sua conta"
+                        keyboardType="numeric"
 
-            <View>
-                <Image source={require('./../../assets/NEXUS.png')} style={styles.logo}/>
-            </View>
+                    ></TextInput>
+                    <TextInput 
+                        style={styles.input}
+                        placeholder="Digite sua senha"
+                        keyboardType="numeric"
+                    ></TextInput>
 
-            <View>
+                        <Pressable 
+                            style={styles.btnEntrar}
+                            onPress={() => console.log('entrei')}
+                            >
+                            <Text style={[{fontFamily: 'Archivo-Black', color: '#141414'}, styles.btnEntrarTexto]}>Login</Text>
+                        </Pressable>
+                </Animatable.View>
 
-                <TextInput style={styles.input}></TextInput>
-            </View>
-        </Animatable.View>
+            </Animatable.View>
        </View>
+       
     );
 }
 

@@ -15,7 +15,7 @@ export default function Home({navigation}) {
 
     return (
       <View style={styles.containerPrincipal}  animation='fadeIn' delay={500}>
-        <Animatable.View  animation='fadeIn' delay={500}>
+        <Animatable.View  animation='fadeIn' delay={500} >
 
             {/* O logo do banco */}
             <View style={styles.containerLogo}>

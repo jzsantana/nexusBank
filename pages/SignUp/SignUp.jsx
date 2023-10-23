@@ -3,7 +3,7 @@ import * as Animatable from 'react-native-animatable';
 import styles from "./styles"
 import { useFonts } from 'expo-font';
 
-
+// cadastrar-se
 function SignUp() {
     const [fontsLoaded] = useFonts({
         'Archivo-Black': require('../../assets/fonts/Archivo-Black.ttf')

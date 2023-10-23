@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         color: '#fff',
         fontSize: 40,
+        // letterSpacing: 3,
         // fontFamily: 'Archivo_600SemiBold_Italic',
     },
     foto:{
@@ -60,6 +61,7 @@ const styles = StyleSheet.create({
         // backgroundColor: '#f04',
         display: 'flex',
         gap: 20,
+        
     },
     button:{
         backgroundColor: '#fff',
