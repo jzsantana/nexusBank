@@ -9,7 +9,7 @@ export default function Splash({navigation}) {
     // criando a função que gera a splash screen
     useEffect(() => {
         setTimeout(() => {
-            navigation.replace('Home');
+            navigation.replace('Welcome');
         }, 3000)
     }, [])
     

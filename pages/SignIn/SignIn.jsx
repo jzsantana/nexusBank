@@ -5,7 +5,7 @@ import { useFonts } from 'expo-font';
 
 
 // Entrar
-function SignIn() {
+function SignIn({navigation}) {
     const [fontsLoaded] = useFonts({
         'Archivo-Black': require('../../assets/fonts/Archivo-Black.ttf')
     })
@@ -19,7 +19,7 @@ function SignIn() {
                 <View style={styles.logo}>
                     <Image source={require('./../../assets/NEXUS.png')} style={styles.imgLogo}/>
                 </View>
-                
+
                 <Animatable.View style={styles.containerForm} animation='fadeInUp' delay={500}>
                     <TextInput
                         style={styles.input}
@@ -40,15 +40,14 @@ function SignIn() {
 
                         <Pressable 
                             style={styles.btnEntrar}
-                            onPress={() => console.log('entrei')}
+                            onPress={() => {navigation.navigate('SignUp')}}
                             >
                             <Text style={[{fontFamily: 'Archivo-Black', color: '#141414'}, styles.btnEntrarTexto]}>Login</Text>
                         </Pressable>
                 </Animatable.View>
 
             </Animatable.View>
-       </View>
-       
+       </View> 
     );
 }
 
