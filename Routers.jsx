@@ -6,6 +6,7 @@ import Splash from './pages/Splash/Splash'
 import SignIn from './pages/SignIn/SignIn'
 import SignUp from './pages/SignUp/SignUp'
 import Home from './pages/Home/Home'
+import UserPage from './pages/UserPage/UserPage'
 
 const Stack = createNativeStackNavigator()
 
@@ -18,6 +19,7 @@ export default function Routers (){
         <Stack.Screen name="SignIn" component={SignIn} options={{headerShown: false}}/>
         <Stack.Screen name="SignUp" component={SignUp} options={{headerShown: false}}/>
         <Stack.Screen name="Home" component={Home} options={{headerShown: false}}/>
+        <Stack.Screen name="UserPage" component={UserPage} options={{headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   )

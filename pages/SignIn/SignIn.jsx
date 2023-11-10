@@ -40,7 +40,7 @@ function SignIn({navigation}) {
 
                         <Pressable 
                             style={styles.btnEntrar}
-                            onPress={() => {navigation.navigate('SignUp')}}
+                            onPress={() => {navigation.navigate('UserPage')}}
                             >
                             <Text style={[{fontFamily: 'Archivo-Black', color: '#141414'}, styles.btnEntrarTexto]}>Login</Text>
                         </Pressable>

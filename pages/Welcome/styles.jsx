@@ -23,6 +23,11 @@ const styles = StyleSheet.create({
     //     alignItems: 'center',
     //     justifyContent: 'center',
     // },
+    containerBackground:{
+        width: '100%',
+        height: '100%',
+        
+    },
     
     texto:{
         display: 'flex',

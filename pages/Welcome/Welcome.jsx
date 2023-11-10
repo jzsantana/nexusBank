@@ -1,7 +1,9 @@
-import { View, Image, Text, TouchableOpacity} from 'react-native'
+import { View, Image, Text, TouchableOpacity, ImageBackground} from 'react-native'
 import * as Animatable from 'react-native-animatable';
 import styles from "./styles"
 import { useFonts } from 'expo-font';
+import Circle from './../../assets/circleSpiral.png'
+import SpiralBackground from './../../assets/spirals.png'
 
 
 export default function Welcome({navigation}) {
@@ -16,14 +18,13 @@ export default function Welcome({navigation}) {
     return (
       <View style={styles.containerPrincipal}  animation='fadeIn' delay={500}>
         <Animatable.View  animation='fadeIn' delay={500} >
-
             {/* O logo do banco */}
             <View style={styles.containerLogo}>
                 <Image source={require('./../../assets/NEXUS.png')} style={styles.logo}/>
             </View>
             {/* Aqui é o container onde será posto a imagem redonda com os espirais */}
             <View style={styles.containerFoto}>
-                <Image  source={require('./../../assets/circleSpiral.png')} style={styles.foto} 
+                <Image  source={Circle} style={styles.foto} 
                 />
             </View>
             {/* Aqui é container onde será posto o texto acima dos botoes */}
