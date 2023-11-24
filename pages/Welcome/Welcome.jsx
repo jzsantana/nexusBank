@@ -17,7 +17,7 @@ export default function Welcome({navigation}) {
 
     return (
       <View style={styles.containerPrincipal}  animation='fadeIn' delay={500}>
-        <Animatable.View  animation='fadeIn' delay={500} >
+        <Animatable.View animation='fadeIn' delay={500} >
             {/* O logo do banco */}
             <View style={styles.containerLogo}>
                 <Image source={require('./../../assets/NEXUS.png')} style={styles.logo}/>

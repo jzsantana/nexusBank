@@ -14,7 +14,7 @@ function SignIn({navigation}) {
     }
 
     return (
-        <View style={styles.containerPrincipal} animation='fadeIn' delay={500}>
+        <KeyboardAvoidingView style={styles.containerPrincipal} animation='fadeIn' delay={500}>
             <Animatable.View  animation='fadeIn' delay={500}>
                 <View style={styles.logo}>
                     <Image source={require('./../../assets/NEXUS.png')} style={styles.imgLogo}/>
@@ -45,9 +45,8 @@ function SignIn({navigation}) {
                             <Text style={[{fontFamily: 'Archivo-Black', color: '#141414'}, styles.btnEntrarTexto]}>Login</Text>
                         </Pressable>
                 </Animatable.View>
-
             </Animatable.View>
-       </View> 
+       </KeyboardAvoidingView> 
     );
 }
 
