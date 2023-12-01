@@ -7,18 +7,14 @@ const styles = StyleSheet.create({
         height: '100%',
         display:'flex',
         justifyContent: 'center',
-        // alignItems: 'center',
         margin: 0,
         flexDirection: 'column',
-        // padding: 30,
-        // flex: 1
+        flex: 1
     },
     containerForm: {
-        // flex: 1,
-        // borderTopEndRadius: 50,
         borderTopStartRadius:100,
         width: '100%',
-        height: '90%',
+        height: '80%',
         backgroundColor: '#141414',
         display: 'flex',
         justifyContent: 'center',
@@ -34,15 +30,14 @@ const styles = StyleSheet.create({
         borderRadius: 10
     },
     imgLogo:{
-        backgroundColor: '#f80',
-        width: '100%',
-        marginTop: 100
+        height: 100,
+        width: 100
     },
     logo:{
-        
+        height: '25%',
     },
     btnEntrar: {
-        marginTop: 100,
+        marginTop: 40,
         padding: 10,
         width: 200,
         height: 50,

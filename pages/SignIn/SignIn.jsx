@@ -13,37 +13,55 @@ function SignIn({navigation}) {
         return undefined;
     }
 
+
+
     return (
         <KeyboardAvoidingView style={styles.containerPrincipal} animation='fadeIn' delay={500}>
             <Animatable.View  animation='fadeIn' delay={500}>
-                <View style={styles.logo}>
-                    <Image source={require('./../../assets/NEXUS.png')} style={styles.imgLogo}/>
-                </View>
+                <View style={{height:'25%'}}></View>
 
                 <Animatable.View style={styles.containerForm} animation='fadeInUp' delay={500}>
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Digite sua agência"
-                        keyboardType="numeric"
-                    ></TextInput>
-                    <TextInput 
-                        style={styles.input}
-                        placeholder="Digite sua conta"
-                        keyboardType="numeric"
+                    <View 
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            width: '100%',
+                            gap: 10,
+                            height: '10%'
+                            }}>
+                        <Text htmlFor="" style={{color: '#fff', fontWeight: 600, fontSize: 17}}>CPF</Text>
+                        <TextInput
+                            style={styles.input}
+                            placeholder="Digite seu cpf"
+                            keyboardType="numeric"
+                        ></TextInput>
+                    </View>
+                
+                    <View
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            width: '100%',
+                            gap: 10
+                        }}
+                    >
+                        <Text style={{color: '#fff', fontWeight: 600, fontSize: 17}}>Senha</Text>
+                        <TextInput 
+                            style={styles.input}
+                            placeholder="Digite sua conta"
+                            keyboardType="default"
+                        ></TextInput>
+                    </View>
+                
 
-                    ></TextInput>
-                    <TextInput 
-                        style={styles.input}
-                        placeholder="Digite sua senha"
-                        keyboardType="numeric"
-                    ></TextInput>
-
-                        <Pressable 
-                            style={styles.btnEntrar}
-                            onPress={() => {navigation.navigate('UserPage')}}
-                            >
-                            <Text style={[{fontFamily: 'Archivo-Black', color: '#141414'}, styles.btnEntrarTexto]}>Login</Text>
-                        </Pressable>
+                    <Pressable 
+                        style={styles.btnEntrar}
+                        onPress={() => {navigation.navigate('UserPage')}}
+                        >
+                        <Text style={[{fontFamily: 'Archivo-Black', color: '#141414'}, styles.btnEntrarTexto]}>Login</Text>
+                    </Pressable>
+                
+                    
                 </Animatable.View>
             </Animatable.View>
        </KeyboardAvoidingView> 

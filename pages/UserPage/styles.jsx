@@ -10,15 +10,13 @@ const styles = StyleSheet.create({
         // alignItems: 'center',
         margin: 0,
         flexDirection: 'column',
-        padding: 35,
+        padding: 30,
     },
     containerNome:{
         display: 'flex',
         alignItems: 'flex-start',
         justifyContent: 'center',
-        backgroundColor: 'brown',
         width: '50%',
-        // height: '2%',
         marginTop: 15,
         padding: 2,
     },
@@ -27,9 +25,19 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start'
     },
     containerCartao:{
-        backgroundColor: 'black',
-        padding: 38,
+        marginTop:55,
+        backgroundColor: '#92AAFF',
+        padding: 30,
         borderRadius: 9,
+        height: 150,
+        justifyContent: 'center',
+        gap: 10
+    },
+    contentCartao:{
+        display: "flex",
+        flexDirection:'row',
+        gap: 12,
+        alignItems:'center',
     },
     containerOptions:{
         width: '100%',
@@ -41,6 +49,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 10,
         marginTop: 25,
+        
     },
     optionsContainer:{
         width: '25%',
