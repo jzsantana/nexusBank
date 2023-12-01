@@ -66,13 +66,12 @@ const styles = StyleSheet.create({
         // backgroundColor: '#f04',
         display: 'flex',
         gap: 20,
-        
     },
     button:{
         backgroundColor: '#fff',
         padding: 5,
-        width: 140,
-        height: 40,
+        width: 145,
+        height: 45,
         color: '#000',
         marginTop: 25,
         borderRadius: 10,
