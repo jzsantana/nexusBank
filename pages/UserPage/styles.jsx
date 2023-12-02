@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         justifyContent: 'center',
         width: '50%',
-        marginTop: 15,
+        // marginTop: 15,
         padding: 2,
     },
     containerNomeTexto:{
@@ -27,47 +27,66 @@ const styles = StyleSheet.create({
     containerCartao:{
         marginTop:55,
         backgroundColor: '#92AAFF',
-        padding: 30,
+        padding: 20,
         borderRadius: 9,
-        height: 150,
+        height: 160,
         justifyContent: 'center',
-        gap: 10
+        // alignItems: 'center',
+        gap: 5
     },
     contentCartao:{
+        width: '100%',
         display: "flex",
+        justifyContent: 'space-between',
         flexDirection:'row',
-        gap: 12,
+        // gap: 50,
         alignItems:'center',
     },
     containerOptions:{
         width: '100%',
-        height: '25%',
-        backgroundColor: 'red',
+        height: '16%',
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        // backgroundColor: '#f40',
+        justifyContent: 'center',
         alignItems: 'center',
-        padding: 10,
-        marginTop: 25,
-        
+        padding: 5,
+        marginTop: 28,
+        gap: 8
     },
     optionsContainer:{
-        width: '25%',
-        // height: '25%',
-        backgroundColor: 'gray',
+        width: '35%',
+        height: '85%',
+        backgroundColor: 'black',
         borderRadius: 8,
-        padding:10,
     },
-    // containerOpcoesMaiores:{
-    //     width: '12%',
-    //     height: '2%',
-    //     backgroundColor: 'purple',
-    // },
-    // containerGeneral:{
-    //     width: '100%',
-    //     height:'40%'
-    // }
-   
+    containerGeneral:{
+        width: '100%',
+        height:'40%',
+        marginTop: 25,
+        backgroundColor: '#f40',
+        padding: 10,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    containerGeneralOptions:{
+        width:'100%',
+        height: '50%',
+        display: 'flex',
+        justifyContent: 'center',
+        flexDirection: 'row',
+        gap: 10
+    },
+    containerOpcoesMaiores:{
+        width: '50%',
+        height: '70%',
+        backgroundColor: 'black',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 10,
+    },
 })
 
 export default styles

@@ -23,7 +23,7 @@ function UserPage() {
         return undefined;
     }
 
-    const nome = "Fulana";
+    const nome = "Júlia";
     const agencia = '0001'
     const conta = '102586'
 
@@ -45,18 +45,16 @@ function UserPage() {
                     <Text style={[styles.containerNomeTexto, {color: 'black', fontFamily: 'Archivo-Bold', fontSize: 13}]}>{conta}</Text>    
                 </View>
                
-                
+                <Text style={{color:'black', fontFamily: 'Archivo-Bold', fontSize: 16}}>Meu saldo:</Text>
                 <View style={styles.contentCartao}>
-                    <Text style={{padding: 2, color:'black', fontFamily: 'Archivo-Bold', fontSize: 18}}>Meu saldo:</Text>
-                    
+                    <Text style={{color:'black', fontFamily: 'Archivo-Bold', fontSize: 16}}>R$</Text>
                     {
-                        show ? <Text style={{padding: 2, color:'black', fontWeight:500, fontSize:16}}>R$: {saldo}</Text> :
+                        show ? <Text style={{ color:'black', fontWeight:500, fontSize:16}}>{saldo}</Text> :
                         <View style={{
-                            width: '26%', 
-                            height: 17,
+                            width: '60%', 
+                            height: 18,
                             backgroundColor: 'rgba(217, 217, 217, 0.65)', 
                             borderRadius:5,
-                            marginLeft: 25
                         }}
                             ></View>
                     }
@@ -78,19 +76,68 @@ function UserPage() {
             </Animatable.View>
 
             <View style={styles.containerOptions}>
-                <Pressable style={[styles.optionsContainer,{display:'flex', justifyContent:'center', alignItems:'center'}]}><MaterialIcons name='360' size={40} color={'#fff'}/></Pressable>
-                <Pressable style={[styles.optionsContainer,{display:'flex', justifyContent:'center', alignItems:'center'}]}><MaterialIcons name='pix' size={40} color={'#fff'}/></Pressable>
-                <Pressable style={[styles.optionsContainer,{display:'flex', justifyContent:'center', alignItems:'center'}]}><MaterialIcons name='pix' size={40} color={'#fff'}/></Pressable>
+                <Pressable 
+                    style={[
+                        styles.optionsContainer,
+                        {display:'flex', 
+                        justifyContent:'center', 
+                        alignItems:'center'
+                        }]}>
+                    <MaterialIcons name='360' size={40} color={'#fff'}/>
+                    <Text style={{color: '#fff', fontWeight:500, fontSize: 13}}>PIX</Text>
+                </Pressable>
+
+                <Pressable 
+                    style={[
+                        styles.optionsContainer,
+                        {display:'flex', 
+                        justifyContent:'center', 
+                        alignItems:'center'
+                        }]}>
+                    <MaterialIcons name='360' size={40} color={'#fff'}/>
+                    <Text style={{color: '#fff', fontWeight:500, fontSize: 13}}>Transferencia</Text>
+                </Pressable>
+
+                <Pressable 
+                    style={[
+                        styles.optionsContainer,
+                        {display:'flex',
+                        justifyContent:'center', 
+                        alignItems:'center'
+                        }]}>
+                    <MaterialIcons name='360' size={40} color={'#fff'}/>
+                    <Text style={{color: '#fff', fontWeight:500, fontSize: 13}}>Extrato</Text>
+                </Pressable>
             </View>
 
-            {/* <View style={styles.containerGeneral}>
-                <View style={styles.containerOpcoesMaiores}></View>                        
-                <View style={styles.containerOpcoesMaiores}></View>
-                <View style={styles.containerOpcoesMaiores}></View>
-                <View style={styles.containerOpcoesMaiores}></View>           
-                <View style={styles.containerOpcoesMaiores}></View>
-                <View style={styles.containerOpcoesMaiores}></View>
-            </View>  */}
+            <View style={styles.containerGeneral}>
+                <View style={styles.containerGeneralOptions}>
+                    <Pressable style={styles.containerOpcoesMaiores}>
+                        <MaterialCommunityIcons name='hand-extended-outline' size={30} color='white'/>
+                        <Text style={{color: '#fff'}}>Emprestimo</Text>
+                    </Pressable>   
+
+                    <Pressable style={styles.containerOpcoesMaiores}>
+                        <MaterialCommunityIcons name='credit-card-multiple-outline' size={30} color='white'/>
+                        <Text style={{color: '#fff'}}>Cartoes</Text>    
+                    </Pressable>
+                </View>
+                
+                <View style={styles.containerGeneralOptions}>
+                    <Pressable style={styles.containerOpcoesMaiores}>
+                        <MaterialCommunityIcons name='barcode-scan' size={30} color='white'/>
+                        <Text style={{color: '#fff'}}>Pagar</Text>
+                    </Pressable>
+                        
+                    
+                    <Pressable style={styles.containerOpcoesMaiores}>
+                        <MaterialIcons name='360' size={30} color='white'/>
+                        <Text style={{color: '#fff'}}>Poupança</Text>    
+                    </Pressable>  
+                </View>
+                         
+                
+            </View> 
         </Animatable.View>
        </View>
     );
