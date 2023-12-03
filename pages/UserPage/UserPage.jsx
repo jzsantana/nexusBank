@@ -27,7 +27,7 @@ function UserPage() {
     const agencia = '0001'
     const conta = '102586'
 
-    const saldo = '10000,00';
+    const saldo = '1000,00';
 
     return (
        <View style={styles.containerPrincipal} animation='fadeIn' delay={500}>

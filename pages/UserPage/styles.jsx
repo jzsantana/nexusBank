@@ -62,25 +62,25 @@ const styles = StyleSheet.create({
     },
     containerGeneral:{
         width: '100%',
-        height:'40%',
+        height:'35%',
         marginTop: 25,
         backgroundColor: '#f40',
-        padding: 10,
         display: 'flex',
+        gap: 5,
         justifyContent: 'center',
-        alignItems: 'center'
     },
     containerGeneralOptions:{
         width:'100%',
-        height: '50%',
+        height: '55%',
         display: 'flex',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         flexDirection: 'row',
-        gap: 10
+        gap: 10,
+        padding: 5
     },
     containerOpcoesMaiores:{
         width: '50%',
-        height: '70%',
+        height: '85%',
         backgroundColor: 'black',
         display: 'flex',
         justifyContent: 'center',
