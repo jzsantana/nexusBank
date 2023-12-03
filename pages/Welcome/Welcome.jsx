@@ -1,10 +1,8 @@
-import { View, Image, Text, TouchableOpacity, ImageBackground} from 'react-native'
+import { View, Image, Text, TouchableOpacity} from 'react-native'
 import * as Animatable from 'react-native-animatable';
 import styles from "./styles"
 import { useFonts } from 'expo-font';
 import Circle from './../../assets/circleSpiral.png'
-import SpiralBackground from './../../assets/spirals.png'
-
 
 export default function Welcome({navigation}) {
     // criando as fontes que estarõ no projeto, uso elas com style inline
@@ -16,7 +14,7 @@ export default function Welcome({navigation}) {
     }
 
     return (
-      <View style={styles.containerPrincipal}  animation='fadeIn' delay={500}>
+      <View style={styles.containerPrincipal}  animation='fadeIn' delay={500} >
         <Animatable.View animation='fadeIn' delay={500} >
             {/* O logo do banco */}
             <View style={styles.containerLogo}>

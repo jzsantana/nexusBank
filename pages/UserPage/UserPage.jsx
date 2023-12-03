@@ -1,18 +1,19 @@
-import { View, Image, Text, Pressable} from 'react-native'
+import { View, Image, Text, Pressable, Dimensions} from 'react-native'
 import * as Animatable from 'react-native-animatable';
 import styles from "./styles"
-// import Icon from 'react-native-vector-icons/FontAwesome'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-// import FontAwesome6Pro from 'react-native-vector-icons/FontAwesome6Pro'
-// import FontAwesome6Brands from 'react-native-vector-icons/FontAwesome6Brands'
+import Home from '../Home/Home';
 
 import { useFonts } from 'expo-font';
 import { useState } from 'react';
 
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
 // cadastrar-se
-function UserPage() {
+function UserPage({navigation}) {
 
     const [show, setShow] = useState(true)
 
@@ -30,8 +31,8 @@ function UserPage() {
     const saldo = '1000,00';
 
     return (
-       <View style={styles.containerPrincipal} animation='fadeIn' delay={500}>
-        <Animatable.View  animation='fadeIn' delay={500}>
+       <View style={[styles.containerPrincipal, {width: windowWidth, height: windowHeight}]} animation='fadeIn' delay={500}>
+        <Animatable.View  animation='fadeIn' delay={500} >
             {/* Container com o 'carta' com o saldo e etc*/}
             <Animatable.View animation='fadeInUp' delay={200} style={styles.containerCartao}>
                 <View style={styles.containerNome}><Text style={[styles.containerNomeTexto, {color: 'black', fontFamily: 'Archivo-Bold', fontSize: 20}]}>Olá, {nome}.</Text></View>
@@ -75,7 +76,7 @@ function UserPage() {
                 
             </Animatable.View>
 
-            <View style={styles.containerOptions}>
+            <Animatable.View animation='fadeInUp' delay={200}  style={styles.containerOptions}>
                 <Pressable 
                     style={[
                         styles.optionsContainer,
@@ -83,8 +84,8 @@ function UserPage() {
                         justifyContent:'center', 
                         alignItems:'center'
                         }]}>
-                    <MaterialIcons name='360' size={40} color={'#fff'}/>
-                    <Text style={{color: '#fff', fontWeight:500, fontSize: 13}}>PIX</Text>
+                    <MaterialCommunityIcons name='cash-fast' size={38} color={'#92AAFF'}/>
+                    <Text style={{color: '#92AAFF', fontWeight:500, fontSize: 13}}>PIX</Text>
                 </Pressable>
 
                 <Pressable 
@@ -94,8 +95,8 @@ function UserPage() {
                         justifyContent:'center', 
                         alignItems:'center'
                         }]}>
-                    <MaterialIcons name='360' size={40} color={'#fff'}/>
-                    <Text style={{color: '#fff', fontWeight:500, fontSize: 13}}>Transferencia</Text>
+                    <MaterialCommunityIcons name='bank-transfer' size={38} color={'#92AAFF'}/>
+                    <Text style={{color: '#92AAFF', fontWeight:500, fontSize: 13}}>Transferencia</Text>
                 </Pressable>
 
                 <Pressable 
@@ -105,39 +106,48 @@ function UserPage() {
                         justifyContent:'center', 
                         alignItems:'center'
                         }]}>
-                    <MaterialIcons name='360' size={40} color={'#fff'}/>
-                    <Text style={{color: '#fff', fontWeight:500, fontSize: 13}}>Extrato</Text>
+                    <MaterialCommunityIcons name='file-document-multiple-outline' size={38}  color={'#92AAFF'}/>
+                    <Text style={{color: '#92AAFF', fontWeight:500, fontSize: 13}}>Extrato</Text>
                 </Pressable>
-            </View>
+            </Animatable.View>
 
-            <View style={styles.containerGeneral}>
+            <Animatable.View animation='fadeInUp' delay={200}  style={styles.containerGeneral}>
                 <View style={styles.containerGeneralOptions}>
-                    <Pressable style={styles.containerOpcoesMaiores}>
-                        <MaterialCommunityIcons name='hand-extended-outline' size={30} color='white'/>
-                        <Text style={{color: '#fff'}}>Emprestimo</Text>
+                    <Pressable 
+                        style={styles.containerOpcoesMaiores}
+                        onPress={() => (navigation.navigate('UserProfile'))}   
+                    >
+                        <MaterialCommunityIcons name='hand-extended-outline' size={32} color='#92AAFF'/>
+                        <Text style={{color: '#92AAFF'}}>Emprestimo</Text>
                     </Pressable>   
 
                     <Pressable style={styles.containerOpcoesMaiores}>
-                        <MaterialCommunityIcons name='credit-card-multiple-outline' size={30} color='white'/>
-                        <Text style={{color: '#fff'}}>Cartoes</Text>    
+                        <MaterialCommunityIcons name='credit-card-multiple-outline' size={32} color='#92AAFF'/>
+                        <Text style={{color: '#92AAFF'}}>Cartoes</Text>    
                     </Pressable>
                 </View>
                 
                 <View style={styles.containerGeneralOptions}>
                     <Pressable style={styles.containerOpcoesMaiores}>
-                        <MaterialCommunityIcons name='barcode-scan' size={30} color='white'/>
-                        <Text style={{color: '#fff'}}>Pagar</Text>
+                        <MaterialCommunityIcons name='barcode-scan' size={32} color='#92AAFF'/>
+                        <Text style={{color: '#92AAFF'}}>Pagar</Text>
                     </Pressable>
                         
                     
                     <Pressable style={styles.containerOpcoesMaiores}>
-                        <MaterialIcons name='360' size={30} color='white'/>
-                        <Text style={{color: '#fff'}}>Poupança</Text>    
+                        <MaterialCommunityIcons name='piggy-bank-outline' size={32} color='#92AAFF'/>
+                        <Text style={{color: '#92AAFF'}}>Poupança</Text>    
                     </Pressable>  
                 </View>
-                         
-                
-            </View> 
+            </Animatable.View> 
+
+            <Animatable.View animation='fadeInUp' delay={200} style={styles.containerBotton}>
+                <Pressable
+                    onPress={() => (navigation.navigate('UserProfile'))}  
+                >
+                    <Text style={{fontWeight: 500, fontFamily:'Archivo-Bold', fontSize: 15}}>Meu perfil</Text>
+                </Pressable>
+            </Animatable.View>
         </Animatable.View>
        </View>
     );

@@ -3,8 +3,6 @@ import { StyleSheet } from "react-native"
 const styles = StyleSheet.create({
     containerPrincipal:{
         backgroundColor: '#141414',
-        width: '100%',
-        height: '100%',
         display:'flex',
         // justifyContent: 'center',
         // alignItems: 'center',
@@ -25,7 +23,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start'
     },
     containerCartao:{
-        marginTop:55,
+        marginTop:45,
         backgroundColor: '#92AAFF',
         padding: 20,
         borderRadius: 9,
@@ -64,29 +62,41 @@ const styles = StyleSheet.create({
         width: '100%',
         height:'35%',
         marginTop: 25,
-        backgroundColor: '#f40',
         display: 'flex',
         gap: 5,
         justifyContent: 'center',
+        alignItems: 'center',
+        padding: 10,
     },
     containerGeneralOptions:{
         width:'100%',
         height: '55%',
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
+        alignItems: 'center',
         flexDirection: 'row',
         gap: 10,
-        padding: 5
+        // padding: 5
     },
     containerOpcoesMaiores:{
         width: '50%',
-        height: '85%',
+        height: '80%',
         backgroundColor: 'black',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 10,
     },
+    containerBotton:{
+        marginTop: 25,
+        width: '100%',
+        height: 50,
+        backgroundColor: '#92AAFF',
+        borderRadius: 12,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'      
+    }
 })
 
 export default styles

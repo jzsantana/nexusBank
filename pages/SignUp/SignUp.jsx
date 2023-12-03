@@ -1,7 +1,10 @@
-import { View, Image, Text, TouchableOpacity} from 'react-native'
+import { View, Image, Text,Dimensions} from 'react-native'
 import * as Animatable from 'react-native-animatable';
 import styles from "./styles"
 import { useFonts } from 'expo-font';
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 // cadastrar-se
 function SignUp() {
@@ -13,8 +16,8 @@ function SignUp() {
     }
 
     return (
-       <View style={styles.containerPrincipal} animation='fadeIn' delay={500}>
-        <Animatable.View  animation='fadeIn' delay={500}>
+       <View style={[styles.containerPrincipal, {width: windowWidth, height: windowHeight}]} animation='fadeIn' delay={500}>
+        <Animatable.View  animation='fadeIn' delay={500} style={{}}>
             
         </Animatable.View>
        </View>

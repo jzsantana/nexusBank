@@ -1,13 +1,16 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 {/* <style>
   @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 </style> */}
 
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
 const styles = StyleSheet.create({
     containerPrincipal:{
         backgroundColor: '#141414',
-        width: '100%',
-        height: '100%',
+        width: windowWidth,
+        height: windowHeight,
         display:'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -15,18 +18,9 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         padding: 35,
     },    
-    // container: {
-    //     width: '100%',
-    //     height: '100%',
-    //     display:'flex',
-    //     backgroundColor: '#141414',
-    //     alignItems: 'center',
-    //     justifyContent: 'center',
-    // },
     containerBackground:{
         width: '100%',
         height: '100%',
-        
     },
     
     texto:{
