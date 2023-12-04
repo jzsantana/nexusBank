@@ -4,7 +4,6 @@ import styles from "./styles"
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-import Home from '../Home/Home';
 
 import { useFonts } from 'expo-font';
 import { useState } from 'react';

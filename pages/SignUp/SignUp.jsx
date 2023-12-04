@@ -1,4 +1,4 @@
-import { View, Image, Text,Dimensions} from 'react-native'
+import { View,Text,Dimensions, TextInput} from 'react-native'
 import * as Animatable from 'react-native-animatable';
 import styles from "./styles"
 import { useFonts } from 'expo-font';
@@ -17,8 +17,109 @@ function SignUp() {
 
     return (
        <View style={[styles.containerPrincipal, {width: windowWidth, height: windowHeight}]} animation='fadeIn' delay={500}>
-        <Animatable.View  animation='fadeIn' delay={500} style={{}}>
-            
+        <Animatable.Text animation='fadeIn' delay={500} 
+            style={{
+                fontSize: 20, 
+                fontWeight: 500
+            }}
+            >Cadastro</Animatable.Text>
+
+        <Animatable.View  animation='fadeInUp' delay={500} style={styles.containerContent}>
+                <View 
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        width: '100%',
+                        gap: 10,
+                        height: '10%'
+                        }}>
+                    <Text htmlFor="" style={{color: '#fff', fontWeight: 600, fontSize: 17}}>CPF</Text>
+                    <TextInput
+                            style={styles.input}
+                            placeholder="Digite seu cpf"
+                            keyboardType="numeric"
+                    ></TextInput>
+                </View>
+                
+                    <View
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            width: '100%',
+                            gap: 10
+                        }}
+                    >
+                        <Text style={{color: '#fff', fontWeight: 600, fontSize: 17}}>Senha</Text>
+                        <TextInput 
+                            style={styles.input}
+                            placeholder="Digite sua conta"
+                            keyboardType="default"
+                        ></TextInput>
+                    </View>
+
+                    <View
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            width: '100%',
+                            gap: 10
+                        }}
+                    >
+                        <Text style={{color: '#fff', fontWeight: 600, fontSize: 17}}>Senha</Text>
+                        <TextInput 
+                            style={styles.input}
+                            placeholder="Digite sua conta"
+                            keyboardType="default"
+                        ></TextInput>
+                    </View>
+
+                    <View
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            width: '100%',
+                            gap: 10
+                        }}
+                    >
+                        <Text style={{color: '#fff', fontWeight: 600, fontSize: 17}}>Senha</Text>
+                        <TextInput 
+                            style={styles.input}
+                            placeholder="Digite sua conta"
+                            keyboardType="default"
+                        ></TextInput>
+                    </View>
+
+                    <View
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            width: '100%',
+                            gap: 10
+                        }}
+                    >
+                        <Text style={{color: '#fff', fontWeight: 600, fontSize: 17}}>Senha</Text>
+                        <TextInput 
+                            style={styles.input}
+                            placeholder="Digite sua conta"
+                            keyboardType="default"
+                        ></TextInput>
+                    </View>
+
+                    <View
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            width: '100%',
+                            gap: 10
+                        }}
+                    >
+                        <Text style={{color: '#fff', fontWeight: 600, fontSize: 17}}>Senha</Text>
+                        <TextInput 
+                            style={styles.input}
+                            placeholder="Digite sua conta"
+                            keyboardType="default"
+                        ></TextInput>
+                    </View>
         </Animatable.View>
        </View>
     );
