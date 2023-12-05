@@ -5,6 +5,8 @@ import { useFonts } from 'expo-font';
 import { useState } from 'react';
 
 import styles from "./styles"
+import { useUser } from '../../services/UserContext';
+import nexusAPI from '../../services/api';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -12,7 +14,7 @@ const windowHeight = Dimensions.get('window').height;
 // cadastrar-se
 function UserPage({navigation}) {
 
-
+    const { setCpf, setPassword } = useUser()
 
     const [show, setShow] = useState(true)
     const [fontsLoaded] = useFonts({
@@ -22,7 +24,23 @@ function UserPage({navigation}) {
         return undefined;
     }
 
-
+    async function handleGetInfo() {
+        try{
+            await nexusAPI.post(`auth/token/login`, 
+            {
+                cpf:cpfInput,
+                password: passwordInput
+            },).then(
+                function(response){
+                    nexusAPI.defaults.headers.Authorization = `Token ${response.data.auth_token}`
+                }
+            )
+            
+        }
+        catch(error){
+            console.log('erro', error)
+        }
+    }
 
     const nome = "Júlia";
     const agencia = '0001'
@@ -53,7 +71,7 @@ function UserPage({navigation}) {
                         show ? <Text style={{ color:'black', fontWeight:500, fontSize:16}}>{saldo}</Text> :
                         <View style={{
                             width: '60%', 
-                            height: 18,
+                            height: 30,
                             backgroundColor: 'rgba(217, 217, 217, 0.65)', 
                             borderRadius:5,
                         }}

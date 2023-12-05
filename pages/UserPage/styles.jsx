@@ -4,8 +4,6 @@ const styles = StyleSheet.create({
     containerPrincipal:{
         backgroundColor: '#141414',
         display:'flex',
-        // justifyContent: 'center',
-        // alignItems: 'center',
         margin: 0,
         flexDirection: 'column',
         padding: 30,
@@ -15,7 +13,6 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         justifyContent: 'center',
         width: '50%',
-        // marginTop: 15,
         padding: 2,
     },
     containerNomeTexto:{
@@ -29,7 +26,6 @@ const styles = StyleSheet.create({
         borderRadius: 9,
         height: 160,
         justifyContent: 'center',
-        // alignItems: 'center',
         gap: 5
     },
     contentCartao:{
@@ -37,7 +33,6 @@ const styles = StyleSheet.create({
         display: "flex",
         justifyContent: 'space-between',
         flexDirection:'row',
-        // gap: 50,
         alignItems:'center',
     },
     containerOptions:{
@@ -45,7 +40,6 @@ const styles = StyleSheet.create({
         height: '16%',
         display: 'flex',
         flexDirection: 'row',
-        // backgroundColor: '#f40',
         justifyContent: 'center',
         alignItems: 'center',
         padding: 5,
@@ -76,7 +70,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row',
         gap: 10,
-        // padding: 5
     },
     containerOpcoesMaiores:{
         width: '50%',

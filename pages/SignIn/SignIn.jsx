@@ -3,13 +3,13 @@ import * as Animatable from 'react-native-animatable';
 import styles from "./styles"
 import { useFonts } from 'expo-font';
 import nexusAPI from '../../services/api';
-import { useState } from 'react';
+import { useUser } from '../../services/UserContext';
 
 // Entrar
 function SignIn({navigation}) {
-
     const [cpfInput, setCpfInput] = useState('')
     const [passwordInput, setPasswordInput] = useState('')
+    // const { setCpf, setPassword } = useUser()
 
     const [fontsLoaded] = useFonts({
         'Archivo-Black': require('../../assets/fonts/Archivo-Black.ttf')
