@@ -1,11 +1,8 @@
-import { useWindowDimensions, StyleSheet } from "react-native"
-
-
+import { StyleSheet } from "react-native"
 
 const styles = StyleSheet.create({
     containerPrincipal:{
-        backgroundColor: '#111111',
-        width: window,
+        backgroundColor: '#111111', 
         display:'flex',
         justifyContent: 'center',
         alignItems: 'center'
@@ -37,7 +34,6 @@ const styles = StyleSheet.create({
         display: "flex",
         justifyContent: 'center',
         alignItems: 'center',
-        
     },
     profilePicture:{
         width: '50%',

@@ -22,14 +22,11 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
     },
-    
     texto:{
         display: 'flex',
         alignItems: 'center',
         color: '#fff',
         fontSize: 40,
-        // letterSpacing: 3,
-        // fontFamily: 'Archivo_600SemiBold_Italic',
     },
     foto:{
         width: 270,
@@ -41,9 +38,7 @@ const styles = StyleSheet.create({
         flex: 2,
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center',
-        // width: '100%',
-        // height: '100%'
+        alignItems: 'center'
     }, 
     containerLogo:{
         flex:1,
@@ -51,13 +46,11 @@ const styles = StyleSheet.create({
         marginTop: 15,
     },
     containerApresentacao:{
-        // width: '100%',
         fontStyle: 'normal',
         marginTop: 90,
         fontSize: 38,
         fontWeight: 'bold',
         flex:3,
-        // backgroundColor: '#f04',
         display: 'flex',
         gap: 20,
     },

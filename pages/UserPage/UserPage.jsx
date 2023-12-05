@@ -1,12 +1,10 @@
-import { View, Image, Text, Pressable, Dimensions} from 'react-native'
+import { View, Text, Pressable, Dimensions} from 'react-native'
 import * as Animatable from 'react-native-animatable';
-import styles from "./styles"
-import AntDesign from 'react-native-vector-icons/AntDesign'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
-
 import { useFonts } from 'expo-font';
 import { useState } from 'react';
+
+import styles from "./styles"
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -14,14 +12,17 @@ const windowHeight = Dimensions.get('window').height;
 // cadastrar-se
 function UserPage({navigation}) {
 
-    const [show, setShow] = useState(true)
 
+
+    const [show, setShow] = useState(true)
     const [fontsLoaded] = useFonts({
         'Archivo-Bold': require('../../assets/fonts/Archivo-Bold.ttf')
     })
     if(!fontsLoaded){
         return undefined;
     }
+
+
 
     const nome = "Júlia";
     const agencia = '0001'
