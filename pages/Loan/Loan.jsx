@@ -5,7 +5,7 @@ import { useFonts } from 'expo-font';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-export default function UserProfile({navigation}){
+export default function Loan({navigation}){
     
     const [fontsLoaded] = useFonts({
         'Archivo-Bold': require('../../assets/fonts/Archivo-Bold.ttf')
@@ -19,22 +19,16 @@ export default function UserProfile({navigation}){
             <View style={styles.cardContainer}>
                 <View style={styles.profilePictureContainer}>
                     <View style={styles.profilePicture}>
-        
+                        <Text>Deseja solicitar um emprestimo?</Text>
                     </View>
 
                     <Pressable 
                         style={styles.buttonProfilePicture}
                         
                     >
-                            <Text style={{fontWeight: 500, fontFamily: 'Archivo-Bold'}}>Trocar foto de perfil</Text>
+                            <Text style={{fontWeight: 500, fontFamily: 'Archivo-Bold'}}>Solicitar</Text>
                     </Pressable>
                 </View>
-
-                <View style={styles.containerInfos}>
-                    <Text style={{color: 'white', fontSize: 15}}>Fulana de Tal</Text>
-                    <Text style={{color: 'white', fontSize: 15}}>Seu saldo disponivel: </Text>
-                </View>
-
             </View>
 
         </View>       

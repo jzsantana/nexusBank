@@ -8,49 +8,13 @@ import SignIn from './pages/SignIn/SignIn'
 import SignUp from './pages/SignUp/SignUp'
 import UserPage from './pages/UserPage/UserPage'
 import UserProfile from './pages/UserProfile/UserProfile'
+import Loan from './pages/Loan/Loan'
+import Cards from './pages/Cards/Cards'
+import Transaction from './pages/Transaction/Transaction'
+import Pix from './pages/Pix/Pix'
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator();
-
-// function MyTabs() {
-//   return(
-//     <Tab.Navigator
-//       initialRouteName="UserPage"
-//       screenOptions={{
-//         tabBarStyle:{
-//             backgroundColor: '#1d3557',
-//             paddingBottom: 1,
-//             paddingTop: 1,
-//             position: "absolute",
-//             borderTopColor: 'transparent',
-//             bottom: 10,
-//             left: 10,
-//             right: 10,
-//             elevation: 10,
-//             borderRadius: 10,
-//             height: 70,
-//           },
-//           tabBarActiveTintColor: '#f1faee',
-//           tabBarInactiveTintColor: '#a8dadc'
-//         }}
-//       >
-//         <Tab.Screen 
-//               name="UserPage"
-//               component={UserPage} 
-//               options={{
-//                   tabBarIcon: ({size, color})=> (<Feather name="user" size={size} color={color}/>)
-//                 }}
-//           />
-//         <Tab.Screen 
-//               name="UserProfile"
-//               component={UserProfile} 
-//               options={{
-//                   tabBarIcon: ({size, color})=> (<Feather name="user" size={size} color={color}/>)
-//                 }}
-//           />
-//       </Tab.Navigator>
-//   )
-// }
 
 export default function Routers (){
 
@@ -63,6 +27,10 @@ export default function Routers (){
         <Stack.Screen name="SignUp" component={SignUp} options={{headerShown: false, statusBarColor: '#92aaff'}}/>
         <Stack.Screen name="UserPage" component={UserPage} options={{headerShown: false, statusBarColor: '#111111'}}/> 
         <Stack.Screen name="UserProfile" component={UserProfile} options={{headerShown: false, statusBarColor: '#111111'} }/> 
+        <Stack.Screen name="Loan" component={Loan} options={{headerShown: false, statusBarColor: '#111111'} }/> 
+        <Stack.Screen name="Cards" component={Cards} options={{headerShown: false, statusBarColor: '#111111'} }/> 
+        <Stack.Screen name="Transaction" component={Transaction} options={{headerShown: false, statusBarColor: '#111111'} }/> 
+        <Stack.Screen name="Pix" component={Pix} options={{headerShown: false, statusBarColor: '#111111'} }/> 
       </Stack.Navigator>
     </NavigationContainer>
   )

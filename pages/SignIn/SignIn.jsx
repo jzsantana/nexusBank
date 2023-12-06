@@ -3,7 +3,8 @@ import * as Animatable from 'react-native-animatable';
 import styles from "./styles"
 import { useFonts } from 'expo-font';
 import nexusAPI from '../../services/api';
-import { useUser } from '../../services/UserContext';
+// import { useUser } from '../../services/UserContext';
+import { useState } from 'react';
 
 // Entrar
 function SignIn({navigation}) {

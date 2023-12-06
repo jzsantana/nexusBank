@@ -14,8 +14,6 @@ const windowHeight = Dimensions.get('window').height;
 // cadastrar-se
 function UserPage({navigation}) {
 
-    const { setCpf, setPassword } = useUser()
-
     const [show, setShow] = useState(true)
     const [fontsLoaded] = useFonts({
         'Archivo-Bold': require('../../assets/fonts/Archivo-Bold.ttf')
@@ -101,7 +99,9 @@ function UserPage({navigation}) {
                         {display:'flex', 
                         justifyContent:'center', 
                         alignItems:'center'
-                        }]}>
+                        }]}
+                        onPress={() => (navigation.navigate('Pix'))}
+                        >
                     <MaterialCommunityIcons name='cash-fast' size={38} color={'#92AAFF'}/>
                     <Text style={{color: '#92AAFF', fontWeight:500, fontSize: 13}}>PIX</Text>
                 </Pressable>
@@ -112,7 +112,9 @@ function UserPage({navigation}) {
                         {display:'flex', 
                         justifyContent:'center', 
                         alignItems:'center'
-                        }]}>
+                        }]}
+                        onPress={() => (navigation.navigate('Transaction'))}
+                        >
                     <MaterialCommunityIcons name='bank-transfer' size={38} color={'#92AAFF'}/>
                     <Text style={{color: '#92AAFF', fontWeight:500, fontSize: 13}}>Transferencia</Text>
                 </Pressable>
@@ -133,13 +135,16 @@ function UserPage({navigation}) {
                 <View style={styles.containerGeneralOptions}>
                     <Pressable 
                         style={styles.containerOpcoesMaiores}
-                        onPress={() => (navigation.navigate('UserProfile'))}   
+                        onPress={() => (navigation.navigate('Loan'))}   
                     >
                         <MaterialCommunityIcons name='hand-extended-outline' size={32} color='#92AAFF'/>
                         <Text style={{color: '#92AAFF'}}>Emprestimo</Text>
                     </Pressable>   
 
-                    <Pressable style={styles.containerOpcoesMaiores}>
+                    <Pressable 
+                        style={styles.containerOpcoesMaiores}
+                        onPress={() => (navigation.navigate('Cards'))}
+                    >
                         <MaterialCommunityIcons name='credit-card-multiple-outline' size={32} color='#92AAFF'/>
                         <Text style={{color: '#92AAFF'}}>Cartoes</Text>    
                     </Pressable>
