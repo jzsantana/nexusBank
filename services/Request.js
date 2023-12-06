@@ -6,9 +6,9 @@ const createClient = (data) => nexusAPI.post(`auth/users`, data,{
       },
 })
 
-const getToken =()=> nexusAPI.post(`auth/users`, data)
+// const getToken =()=> nexusAPI.post(`auth/users`, data)
 
-const getInfoClient = async (token) => {
+const getAccount = async (token) => {
     try {
       const response = await nexusAPI.get('api/v1/account/', {
         headers: {
@@ -22,11 +22,45 @@ const getInfoClient = async (token) => {
     }
 }
 
-const myAccount = async (token, id)=>{
+const getMyAccount = async (token, id)=>{
     try{
-        const response = await nexusAPI.get(`api/v1/account/${id}`,
-        {
-            
-        });
+        const response = await nexusAPI.get(`api/v1/account/${id}`, data, {
+            headers: {
+                Authorization: `Token ${token}`
+            }
+        })
+        return response
+       }
+    catch(error){
+        throw error;
     }
 }
+
+const getDebitCard = async (token, id) => {
+    try{
+        const response = await nexusAPI.get(`api/v1/debit/${id}`, data, {
+            headers: {
+                Authorization: `Token ${token}`
+            }
+        })
+        return response
+       }
+    catch(error){
+        throw error;
+    }
+}
+
+const getCreditCard = async (token, id) =>{
+    try{
+        const response = await nexusAPI.get(`api/v1/credit/${id}`, data, {
+            headers: {
+                Authorization: `Token ${token}`
+            }
+        })
+        return response
+    }catch(error){
+        throw error
+    }
+}
+
+const 
