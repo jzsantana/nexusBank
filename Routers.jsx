@@ -14,10 +14,8 @@ import Transaction from './pages/Transaction/Transaction'
 import Pix from './pages/Pix/Pix'
 
 const Stack = createNativeStackNavigator()
-const Tab = createBottomTabNavigator();
 
 export default function Routers (){
-
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Splash'>

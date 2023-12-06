@@ -3,6 +3,7 @@ import * as Animatable from 'react-native-animatable';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { useFonts } from 'expo-font';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 import styles from "./styles"
 import { useUser } from '../../services/UserContext';
@@ -14,7 +15,38 @@ const windowHeight = Dimensions.get('window').height;
 // cadastrar-se
 function UserPage({navigation}) {
 
+    const { userData } = useUser();
     const [show, setShow] = useState(true)
+    console.log(userData)
+
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await nexusAPI.post('auth/token/login', {
+              cpf: cpfInput,
+              password: passwordInput,
+            });
+    
+            nexusAPI.defaults.headers.Authorization = `Token ${response.data.auth_token}`;
+    
+            const res = await nexusAPI.get('auth/users/me');
+    
+            if (res.status === 200) {
+              const userData = res.data;
+              console.log('Dados do usuário:', userData);
+            } else {
+              console.error('Erro ao obter dados do usuário. Status:', res.status);
+            }
+          } catch (error) {
+            console.error('Erro:', error);
+          }
+        };
+
+    fetchData();
+        }, []); 
+
+
+    
     const [fontsLoaded] = useFonts({
         'Archivo-Bold': require('../../assets/fonts/Archivo-Bold.ttf')
     })
@@ -22,36 +54,41 @@ function UserPage({navigation}) {
         return undefined;
     }
 
-    async function handleGetInfo() {
-        try{
-            await nexusAPI.post(`auth/token/login`, 
-            {
-                cpf:cpfInput,
-                password: passwordInput
-            },).then(
-                function(response){
-                    nexusAPI.defaults.headers.Authorization = `Token ${response.data.auth_token}`
-                }
-            )
-            
-        }
-        catch(error){
-            console.log('erro', error)
-        }
-    }
+    // async function handleLogin(userData) {
 
-    const nome = "Júlia";
+    //     try{
+    //         nexusAPI.post(`auth/token/login`, 
+    //         {
+    //             cpf:cpfInput,
+    //             password: passwordInput
+    //         },).then(
+    //             function(response){
+    //                 nexusAPI.defaults.headers.Authorization = `Token ${response.data.auth_token}`
+    //             }
+    //         )
+
+    //         const res = await nexusAPI.get('auth/users/me');
+    //     }
+    //     catch(error){
+    //         console.log('erro', error)
+    //     }
+    // }
+
+    
+    
+
+    // const nome = "Júlia";
     const agencia = '0001'
-    const conta = '102586'
+    // const conta = '102586'
 
-    const saldo = '1000,00';
+    // const saldo = '1000,00';
 
     return (
        <View style={[styles.containerPrincipal, {width: windowWidth, height: windowHeight}]} animation='fadeIn' delay={500}>
         <Animatable.View  animation='fadeIn' delay={500} >
             {/* Container com o 'carta' com o saldo e etc*/}
             <Animatable.View animation='fadeInUp' delay={200} style={styles.containerCartao}>
-                <View style={styles.containerNome}><Text style={[styles.containerNomeTexto, {color: 'black', fontFamily: 'Archivo-Bold', fontSize: 20}]}>Olá, {nome}.</Text></View>
+                <View style={styles.containerNome}><Text style={[styles.containerNomeTexto, {color: 'black', fontFamily: 'Archivo-Bold', fontSize: 20}]}>Olá, .</Text></View>
                 
                 
                 <View style={{display:'flex', flexDirection:'row', gap: 10, alignItems:'center'}}>
@@ -59,17 +96,17 @@ function UserPage({navigation}) {
                     <Text style={[styles.containerNomeTexto, {color: 'black', fontFamily: 'Archivo-Bold', fontSize: 13}]}>{agencia}</Text>
 
                     <Text style={[styles.containerNomeTexto, {color: 'rgba(0, 0, 0, 0.4)', fontFamily: 'Archivo-Bold', fontSize: 11}]}>Conta</Text>    
-                    <Text style={[styles.containerNomeTexto, {color: 'black', fontFamily: 'Archivo-Bold', fontSize: 13}]}>{conta}</Text>    
+                    <Text style={[styles.containerNomeTexto, {color: 'black', fontFamily: 'Archivo-Bold', fontSize: 13}]}></Text>    
                 </View>
                
                 <Text style={{color:'black', fontFamily: 'Archivo-Bold', fontSize: 16}}>Meu saldo:</Text>
                 <View style={styles.contentCartao}>
                     <Text style={{color:'black', fontFamily: 'Archivo-Bold', fontSize: 16}}>R$</Text>
                     {
-                        show ? <Text style={{ color:'black', fontWeight:500, fontSize:16}}>{saldo}</Text> :
+                        show ? <Text style={{ color:'black', fontWeight:500, fontSize:16}}></Text> :
                         <View style={{
                             width: '60%', 
-                            height: 30,
+                            height: 25,
                             backgroundColor: 'rgba(217, 217, 217, 0.65)', 
                             borderRadius:5,
                         }}

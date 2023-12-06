@@ -3,13 +3,14 @@ import * as Animatable from 'react-native-animatable';
 import styles from "./styles"
 import { useFonts } from 'expo-font';
 import nexusAPI from '../../services/api';
-// import { useUser } from '../../services/UserContext';
+import { useUser } from '../../services/UserContext';
 import { useState } from 'react';
 
 // Entrar
 function SignIn({navigation}) {
     const [cpfInput, setCpfInput] = useState('')
     const [passwordInput, setPasswordInput] = useState('')
+    const { login  } = useUser()
     // const { setCpf, setPassword } = useUser()
 
     const [fontsLoaded] = useFonts({
@@ -20,6 +21,8 @@ function SignIn({navigation}) {
     }
 
     async function handleLogin() {
+        login(cpfInput, passwordInput)
+
         try{
             await nexusAPI.post(`auth/token/login`, 
             {
