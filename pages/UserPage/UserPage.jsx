@@ -6,8 +6,10 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 
 import styles from "./styles"
-import { useUser } from '../../services/UserContext';
+import { useAuth } from '../Contexts/auth';
 import nexusAPI from '../../services/api';
+// import { useUser } from '../../services/UserContext';
+// import nexusAPI from '../../services/api';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -15,38 +17,36 @@ const windowHeight = Dimensions.get('window').height;
 // cadastrar-se
 function UserPage({navigation}) {
 
-    const { userData } = useUser();
     const [show, setShow] = useState(true)
-    console.log(userData)
 
-    useEffect(() => {
-        const fetchData = async () => {
-          try {
-            const response = await nexusAPI.post('auth/token/login', {
-              cpf: cpfInput,
-              password: passwordInput,
-            });
-    
-            nexusAPI.defaults.headers.Authorization = `Token ${response.data.auth_token}`;
-    
-            const res = await nexusAPI.get('auth/users/me');
-    
-            if (res.status === 200) {
-              const userData = res.data;
-              console.log('Dados do usuário:', userData);
-            } else {
-              console.error('Erro ao obter dados do usuário. Status:', res.status);
-            }
-          } catch (error) {
-            console.error('Erro:', error);
-          }
-        };
+    const { authToken, logout } = useAuth();
+    const [userName, setUserName] = useState('');
+    const [ saldo, setSaldo ] = useState('')
+    const [ numConta, setNumConta ] = useState('')
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (authToken) {
+          nexusAPI.defaults.headers.common.Authorization = `Token ${authToken}`;
+
+          const clientResponse = await nexusAPI.get('auth/users/me/');
+          const clientId = clientResponse.data.id
+          setUserName(clientResponse.data.name);
+
+          const accountResponse = await nexusAPI.get(`api/v1/account/${clientId}`);
+          setSaldo(accountResponse.data.saldo)
+          setNumConta(accountResponse.data.account_number)
+          
+        }
+      } catch (error) {
+        console.error('Erro ao obter dados do usuário:', error.response ? error.response.data : error.message);
+      }
+    };
 
     fetchData();
-        }, []); 
+  }, [authToken]);
 
-
-    
     const [fontsLoaded] = useFonts({
         'Archivo-Bold': require('../../assets/fonts/Archivo-Bold.ttf')
     })
@@ -54,41 +54,14 @@ function UserPage({navigation}) {
         return undefined;
     }
 
-    // async function handleLogin(userData) {
-
-    //     try{
-    //         nexusAPI.post(`auth/token/login`, 
-    //         {
-    //             cpf:cpfInput,
-    //             password: passwordInput
-    //         },).then(
-    //             function(response){
-    //                 nexusAPI.defaults.headers.Authorization = `Token ${response.data.auth_token}`
-    //             }
-    //         )
-
-    //         const res = await nexusAPI.get('auth/users/me');
-    //     }
-    //     catch(error){
-    //         console.log('erro', error)
-    //     }
-    // }
-
-    
-    
-
-    // const nome = "Júlia";
     const agencia = '0001'
-    // const conta = '102586'
-
-    // const saldo = '1000,00';
 
     return (
        <View style={[styles.containerPrincipal, {width: windowWidth, height: windowHeight}]} animation='fadeIn' delay={500}>
         <Animatable.View  animation='fadeIn' delay={500} >
             {/* Container com o 'carta' com o saldo e etc*/}
             <Animatable.View animation='fadeInUp' delay={200} style={styles.containerCartao}>
-                <View style={styles.containerNome}><Text style={[styles.containerNomeTexto, {color: 'black', fontFamily: 'Archivo-Bold', fontSize: 20}]}>Olá, .</Text></View>
+                <View style={styles.containerNome}><Text style={[styles.containerNomeTexto, {color: 'black', fontFamily: 'Archivo-Bold', fontSize: 20}]}>Olá, {userName}.</Text></View>
                 
                 
                 <View style={{display:'flex', flexDirection:'row', gap: 10, alignItems:'center'}}>
@@ -96,14 +69,14 @@ function UserPage({navigation}) {
                     <Text style={[styles.containerNomeTexto, {color: 'black', fontFamily: 'Archivo-Bold', fontSize: 13}]}>{agencia}</Text>
 
                     <Text style={[styles.containerNomeTexto, {color: 'rgba(0, 0, 0, 0.4)', fontFamily: 'Archivo-Bold', fontSize: 11}]}>Conta</Text>    
-                    <Text style={[styles.containerNomeTexto, {color: 'black', fontFamily: 'Archivo-Bold', fontSize: 13}]}></Text>    
+                    <Text style={[styles.containerNomeTexto, {color: 'black', fontFamily: 'Archivo-Bold', fontSize: 13}]}>{numConta}</Text>    
                 </View>
                
                 <Text style={{color:'black', fontFamily: 'Archivo-Bold', fontSize: 16}}>Meu saldo:</Text>
                 <View style={styles.contentCartao}>
                     <Text style={{color:'black', fontFamily: 'Archivo-Bold', fontSize: 16}}>R$</Text>
                     {
-                        show ? <Text style={{ color:'black', fontWeight:500, fontSize:16}}></Text> :
+                        show ? <Text style={{ color:'black', fontWeight:500, fontSize:16}}>{saldo}</Text> :
                         <View style={{
                             width: '60%', 
                             height: 25,

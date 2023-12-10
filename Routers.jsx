@@ -15,7 +15,7 @@ import Pix from './pages/Pix/Pix'
 
 const Stack = createNativeStackNavigator()
 
-export default function Routers (){
+export default function Rotas (){
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Splash'>

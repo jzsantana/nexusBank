@@ -1,4 +1,4 @@
-import {View, Text, Dimensions, Pressable, TextInput} from 'react-native'
+import {View, Text, Dimensions, Pressable, TextInput, KeyboardAvoidingView} from 'react-native'
 import styles from './styles'
 import { useFonts } from 'expo-font';
 

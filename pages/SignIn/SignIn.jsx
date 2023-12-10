@@ -3,21 +3,16 @@ import * as Animatable from 'react-native-animatable';
 import styles from "./styles"
 import { useFonts } from 'expo-font';
 import nexusAPI from '../../services/api';
-// import { useUser } from '../../services/UserContext';
 
 import { useState } from 'react';
-import { useContext } from 'react/cjs/react.production.min';
-import {AuthContext, AuthProvider } from '../Contexts/auth';
-import { serviceClient } from '../../services/Request';
+import { useAuth } from '../Contexts/auth';
 
 
 // Entrar
 function SignIn({navigation}) {
-    const { nome, cpf, token} = useContext(AuthProvider)
-    const {logar} = useContext(AuthContext)
-
     const [cpfInput, setCpfInput] = useState('')
     const [passwordInput, setPasswordInput] = useState('')
+    const { login  } = useAuth()
 
     const [fontsLoaded] = useFonts({
         'Archivo-Black': require('../../assets/fonts/Archivo-Black.ttf')
@@ -26,31 +21,23 @@ function SignIn({navigation}) {
         return undefined;
     }
 
-    // async function handleLogin(cpfInput, passwordInput) {
+    async function handleLogin() {
+        login(cpfInput, passwordInput)
 
-    //     try{
-    //         await nexusAPI.post(`auth/token/login`, 
-    //         {
-    //             cpf:cpfInput,
-    //             password: passwordInput
-    //         },).then(
-    //             function(response){
-    //                 nexusAPI.defaults.headers.Authorization = `Token ${response.data.auth_token}`
-    //             }
-    //         )
-    //         navigation.navigate('UserPage');
-    //     }
-    //     catch(error){
-    //         console.log('erro', error)
-    //     }
-    // }
-
-    const handleLogin = async (values) => {
         try{
-            const {status, data} = await serviceClient.loginToken(values)
-
-        }catch(error){
-            console.log(error)
+            await nexusAPI.post(`auth/token/login`, 
+            {
+                cpf:cpfInput,
+                password: passwordInput
+            },).then(
+                function(response){
+                    nexusAPI.defaults.headers.Authorization = `Token ${response.data.auth_token}`
+                }
+            )
+            navigation.navigate('UserPage');
+        }
+        catch(error){
+            console.log('erro', error)
         }
     }
 
