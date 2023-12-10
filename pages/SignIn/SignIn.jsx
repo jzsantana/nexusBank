@@ -7,12 +7,11 @@ import nexusAPI from '../../services/api';
 import { useState } from 'react';
 import { useAuth } from '../Contexts/auth';
 
-
 // Entrar
 function SignIn({navigation}) {
-    const [cpfInput, setCpfInput] = useState('')
+    const { login } = useAuth();
     const [passwordInput, setPasswordInput] = useState('')
-    const { login  } = useAuth()
+    const [cpfInput, setCpfInput] = useState('')
 
     const [fontsLoaded] = useFonts({
         'Archivo-Black': require('../../assets/fonts/Archivo-Black.ttf')
@@ -21,25 +20,23 @@ function SignIn({navigation}) {
         return undefined;
     }
 
-    async function handleLogin() {
-        login(cpfInput, passwordInput)
+    const handleLogin = async (e) => {
+        e.preventDefault()
+        try {
+        const response = await nexusAPI.post('auth/token/login', {
+            cpf: cpfInput,
+            password: passwordInput,
+        });
 
-        try{
-            await nexusAPI.post(`auth/token/login`, 
-            {
-                cpf:cpfInput,
-                password: passwordInput
-            },).then(
-                function(response){
-                    nexusAPI.defaults.headers.Authorization = `Token ${response.data.auth_token}`
-                }
-            )
+        const { auth_token } = response.data;
+        login(auth_token);
             navigation.navigate('UserPage');
+
+        } catch (error) {
+        console.error('Erro ao fazer login:', error.response ? error.response.data : error.message);
         }
-        catch(error){
-            console.log('erro', error)
-        }
-    }
+    };
+  
 
     return (
         <KeyboardAvoidingView style={styles.containerPrincipal} animation='fadeIn' delay={500}>

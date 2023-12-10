@@ -8,30 +8,30 @@ import { useEffect } from 'react';
 import styles from "./styles"
 import { useAuth } from '../Contexts/auth';
 import nexusAPI from '../../services/api';
-// import { useUser } from '../../services/UserContext';
-// import nexusAPI from '../../services/api';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-// cadastrar-se
 function UserPage({navigation}) {
 
     const [show, setShow] = useState(true)
 
-    const { authToken, logout } = useAuth();
+    const { authToken } = useAuth();
     const [userName, setUserName] = useState('');
     const [ saldo, setSaldo ] = useState('')
     const [ numConta, setNumConta ] = useState('')
+    
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        console.log('este é o token',authToken);
         if (authToken) {
-          nexusAPI.defaults.headers.common.Authorization = `Token ${authToken}`;
+           nexusAPI.defaults.headers.common.Authorization = `Token ${authToken}`;
 
           const clientResponse = await nexusAPI.get('auth/users/me/');
           const clientId = clientResponse.data.id
+
           setUserName(clientResponse.data.name);
 
           const accountResponse = await nexusAPI.get(`api/v1/account/${clientId}`);
