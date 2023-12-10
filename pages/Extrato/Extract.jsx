@@ -8,15 +8,7 @@ import { useAuth } from '../Contexts/auth';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-export default function Cards({navigation}){
-    const { authToken } = useAuth();
-    const [userName, setUserName] = useState('')
-
-    const [debitNum, setDebitNum] = useState('')
-    const [userLimite, setUserLimite] = useState('')
-    const [creditNum, setCreditNum] = useState('')
-    const [activeCredit, setActiveCredit] = useState('')
-
+export default function Extract({navigation}){
 
     useEffect(() => {
         const fetchData = async () => {
@@ -62,20 +54,12 @@ export default function Cards({navigation}){
         <View style={[styles.containerPrincipal, {width: windowWidth, height: windowHeight}]}>
             <View style={{width: '100%', height: '10%', alignItems: 'center'}}><Text style={{color: '#fff', fontFamily: 'Archivo-Bold', fontSize: 20}}>Meus cartões</Text></View>
             <View style={styles.cardContainer}>
-                
-                <View style={styles.cardsUser}>
-                    <Text style={{fontFamily: 'Archivo-Bold'}}>{userName}</Text>                    
-                    <Text style={{fontFamily: 'Archivo-Bold'}}>{debitNum}</Text>
-                </View>
-
                 {
-                        activeCredit == false ? <Text style={{ color:'black', fontWeight:500, fontSize:16}}>Você ainda não possui cartão de crédito</Text> :
-                        <View style={styles.cardsUser}>
-                            <Text style={{fontFamily: 'Archivo-Bold'}}>{userName}</Text>
-                            <Text style={{fontFamily: 'Archivo-Bold'}}>{creditNum}</Text>
-                            <Text style={{fontFamily: 'Archivo-Bold'}}>Limite: {userLimite}</Text>
-                        </View>
-                    }
+                    <View style={styles.cardsUser}>
+                        <Text style={{fontFamily: 'Archivo-Bold'}}>{userName}</Text>                    
+                        <Text style={{fontFamily: 'Archivo-Bold'}}>{debitNum}</Text>
+                    </View>
+                }
             </View>
         </View>       
     )

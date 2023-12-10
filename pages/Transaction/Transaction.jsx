@@ -10,6 +10,9 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 export default function Transaction({navigation}){
+
+    const [show, setShow] = useState(true)
+
     const { authToken, login } = useAuth();
     const [idAcc, setIdAcc] = useState('')
     const [valor, setValor] = useState('')
