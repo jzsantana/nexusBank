@@ -10,8 +10,9 @@ const styles = StyleSheet.create({
     cardContainer:{
         backgroundColor: '#000',
         width: '80%',
-        height: '50%',
+        height: '80%',
         borderRadius: 15,
+        gap: 2,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -19,12 +20,12 @@ const styles = StyleSheet.create({
     },
     profilePictureContainer:{
         width: '90%',
-        height: '50%',
+        height: '65%',
         display: "flex",
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        gap: 25
+        gap: 8,
     },
     buttonProfilePicture:{
         padding: 6,
@@ -37,20 +38,18 @@ const styles = StyleSheet.create({
     },
     profilePicture:{
         width: '85%',
-        height: '25%',
-        backgroundColor: '#fff',
+        height: '8%',
         display: 'flex',
         justifyContent: 'center',
-        
-    }, 
-    containerInfos:{
-        width: '90%',
-        height: '25%',
-        padding: 5,
-        display: "flex",
-        justifyContent: 'center',
         alignItems: 'center'
-    }
+    },
+    input:{
+        width: '100%',
+        height: 38,
+        backgroundColor: 'white',
+        padding: 10,
+        borderRadius: 10
+    },
 })
 
 export default styles

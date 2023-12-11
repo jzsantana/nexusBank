@@ -1,4 +1,4 @@
-import {View, Text, Dimensions, Pressable} from 'react-native'
+import {View, Text, Dimensions, Pressable,Image} from 'react-native'
 import styles from './styles'
 import { useFonts } from 'expo-font';
 import { useState, useEffect } from 'react';
@@ -12,6 +12,8 @@ export default function UserProfile({navigation}){
     
     const [userName, setUserName] = useState('');
     const [ numConta, setNumConta ] = useState('')
+    const [image, setImage] = useState('')
+
     const { authToken } = useAuth();
 
     useEffect(() => {
@@ -23,7 +25,7 @@ export default function UserProfile({navigation}){
     
               const clientResponse = await nexusAPI.get('auth/users/me/');
               const clientId = clientResponse.data.id
-    
+                setImage(clientResponse.data.profile_picture)
               setUserName(clientResponse.data.name);
     
               const accountResponse = await nexusAPI.get(`api/v1/account/${clientId}`);
@@ -50,6 +52,7 @@ export default function UserProfile({navigation}){
             <View style={styles.cardContainer}>
                 <View style={styles.profilePictureContainer}>
                     <View style={styles.profilePicture}>
+                        <Image source={{uri:(image)}} style={styles.img}></Image>
                     </View>
 
                     <Pressable 

@@ -16,6 +16,7 @@ export default function Cards({navigation}){
     const [userLimite, setUserLimite] = useState('')
     const [creditNum, setCreditNum] = useState('')
     const [activeCredit, setActiveCredit] = useState('')
+    const [cvv, setCvv] = useState('')
 
 
     useEffect(() => {
@@ -39,7 +40,7 @@ export default function Cards({navigation}){
               setCreditNum(creditResponse.data.credit_card_number)
               setUserLimite(creditResponse.data.limite)
               setActiveCredit(creditResponse.data.active)
-              
+              setCvv(creditResponse.data.credit_cvv)
               
             }
           } catch (error) {
@@ -64,16 +65,23 @@ export default function Cards({navigation}){
             <View style={styles.cardContainer}>
                 
                 <View style={styles.cardsUser}>
-                    <Text style={{fontFamily: 'Archivo-Bold'}}>{userName}</Text>                    
-                    <Text style={{fontFamily: 'Archivo-Bold'}}>{debitNum}</Text>
+                    <Text style={{fontFamily: 'Archivo-Bold', color:'#fff'}}>{userName}</Text>                    
+                    <Text style={{fontFamily: 'Archivo-Bold', color:'#fff'}}>{debitNum}</Text>
                 </View>
 
                 {
                         activeCredit == false ? <Text style={{ color:'black', fontWeight:500, fontSize:16}}>Você ainda não possui cartão de crédito</Text> :
                         <View style={styles.cardsUser}>
-                            <Text style={{fontFamily: 'Archivo-Bold'}}>{userName}</Text>
-                            <Text style={{fontFamily: 'Archivo-Bold'}}>{creditNum}</Text>
-                            <Text style={{fontFamily: 'Archivo-Bold'}}>Limite: {userLimite}</Text>
+                            <Text style={{fontFamily: 'Archivo-Bold', color:'#fff'}}>{userName}</Text>
+                            <Text style={{fontFamily: 'Archivo-Bold', color:'#fff'}}>{creditNum}</Text>
+
+                            <View style={{display: 'flex', flexDirection:'row', justifyContent: 'space-between', gap: 10}}>
+                              <Text style={{fontFamily: 'Archivo-Bold', color:'rgba(255, 255, 255, 0.58)'}}>Limite </Text>
+                              <Text style={{fontFamily: 'Archivo-Bold', color:'#fff'}}>{userLimite}</Text>
+                              <Text style={{fontFamily: 'Archivo-Bold', color:'rgba(255, 255, 255, 0.58)'}}>cvv </Text>
+                              <Text style={{fontFamily: 'Archivo-Bold', color:'#fff'}}>{cvv}</Text>
+                            </View>
+                            
                         </View>
                     }
             </View>

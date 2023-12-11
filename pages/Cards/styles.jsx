@@ -21,12 +21,11 @@ const styles = StyleSheet.create({
     cardsUser:{
         width: '90%',
         height: '30%',
-        backgroundColor: '#fff',
+        backgroundColor: '#92AAFF',
         display: "flex",
-        alignItems: 'center',
         justifyContent:'center',
         borderRadius: 10,
-        padding: 10
+        padding: 25
     }
 })
 
