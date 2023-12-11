@@ -12,6 +12,7 @@ import Loan from './pages/Loan/Loan'
 import Cards from './pages/Cards/Cards'
 import Transaction from './pages/Transaction/Transaction'
 import Pix from './pages/Pix/Pix'
+import Extract from './pages/Extrato/Extract'
 
 const Stack = createNativeStackNavigator()
 
@@ -29,6 +30,7 @@ export default function Rotas (){
         <Stack.Screen name="Cards" component={Cards} options={{headerShown: false, statusBarColor: '#111111'} }/> 
         <Stack.Screen name="Transaction" component={Transaction} options={{headerShown: false, statusBarColor: '#111111'} }/> 
         <Stack.Screen name="Pix" component={Pix} options={{headerShown: false, statusBarColor: '#111111'} }/> 
+        <Stack.Screen name="Extract" component={Extract} options={{headerShown: false, statusBarColor: '#111111'} }/> 
       </Stack.Navigator>
     </NavigationContainer>
   )

@@ -135,7 +135,9 @@ function UserPage({navigation}) {
                         {display:'flex',
                         justifyContent:'center', 
                         alignItems:'center'
-                        }]}>
+                        }]}
+                    onPress={() => (navigation.navigate('Extract'))}        
+                >
                     <MaterialCommunityIcons name='file-document-multiple-outline' size={38}  color={'#92AAFF'}/>
                     <Text style={{color: '#92AAFF', fontWeight:500, fontSize: 13}}>Extrato</Text>
                 </Pressable>
