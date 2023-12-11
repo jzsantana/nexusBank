@@ -55,7 +55,7 @@ export default function Extract({navigation}){
         <View style={[styles.containerPrincipal, {width: windowWidth, height: windowHeight}]}>
             <View style={{width: '100%', height: '10%', alignItems: 'center'}}><Text style={{color: '#fff', fontFamily: 'Archivo-Bold', fontSize: 20}}>Meu extrato</Text></View>
             <View style={styles.cardContainer}>
-            
+{/*             
             {transactionSenderList.length === 0 ? (
                 <Text>Nenhua transação disponível.</Text>
                 ) : (
@@ -73,7 +73,7 @@ export default function Extract({navigation}){
                     </View>
                     )}
                 />
-                )}
+                )} */}
             </View>
         </View>       
     )

@@ -10,14 +10,11 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 export default function Transaction({navigation}){
-
-    const [show, setShow] = useState(true)
-
-    const { authToken, login } = useAuth();
+    const { authToken } = useAuth();
     const [valor, setValor] = useState('')
     const [receiver, setReceiver] = useState('')
     const type_trans = 'TRANSFERENCIA'
-    // const rec = parseInt(receiver)
+    const rec = parseInt(receiver)
 
     const [fontsLoaded] = useFonts({
         'Archivo-Bold': require('../../assets/fonts/Archivo-Bold.ttf')
@@ -42,14 +39,14 @@ export default function Transaction({navigation}){
                 id_cliente: accountId,
                 valor: valor,
                 transaction_type: type_trans,
-                conta_receiver: receiver
+                conta_receiver: rec
               }, {
                 headers: {
                   'Authorization': `Token ${authToken}`,
                   'Content-Type': 'application/json'
                 }
               });
-              Alert.alert(requestResponse.data)
+              Alert.alert(requestResponse.data.message)
             }
             
         }catch (error) {

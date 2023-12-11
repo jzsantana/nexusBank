@@ -46,7 +46,7 @@ export default function Loan({navigation}){
                   'Content-Type': 'application/json'
                 }
               });
-              Alert.alert(requestResponse.data)
+              Alert.alert(requestResponse.data.message)
             }
             
         }catch (error) {
@@ -71,7 +71,7 @@ export default function Loan({navigation}){
                             <TextInput 
                                 style={styles.input}
                                 placeholder="Digite o valor requerido"
-                                keyboardType="number-pad"
+                                keyboardType="numeric"
                                 value={valor}
                                 onChangeText={(e) => setValor(e)}
                             ></TextInput>
@@ -96,7 +96,7 @@ export default function Loan({navigation}){
                             <TextInput 
                                 style={styles.input}
                                 placeholder="Informe seu salário"
-                                keyboardType="number-pad"
+                                keyboardType="numeric"
                                 value={salario}
                                 onChangeText={(e) => setSalario(e)}
                             ></TextInput>
