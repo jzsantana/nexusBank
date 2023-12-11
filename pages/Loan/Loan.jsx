@@ -46,14 +46,9 @@ export default function Loan({navigation}){
                   'Content-Type': 'application/json'
                 }
               });
-              console.log('Dados do empréstimo:', {
-                valor_solicitado: valor,
-                parcelas: parcelas,
-                salario: salario,
-                id_cliente: accountId
-              });
+              Alert.alert(requestResponse.data)
             }
-            Alert.alert('Seu emprestimo foi concedido com sucesso!')
+            
         }catch (error) {
             console.error('Erro ao obter dados do usuário:', error.response ? error.response.data : error.message);
         }

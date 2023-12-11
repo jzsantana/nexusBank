@@ -1,4 +1,4 @@
-import {View, Text, Dimensions, Pressable, TextInput} from 'react-native'
+import {View, Text, Dimensions, Pressable, TextInput, Alert} from 'react-native'
 import styles from './styles'
 import { useFonts } from 'expo-font';
 import { useState } from 'react';
@@ -14,9 +14,10 @@ export default function Transaction({navigation}){
     const [show, setShow] = useState(true)
 
     const { authToken, login } = useAuth();
-    const [idAcc, setIdAcc] = useState('')
     const [valor, setValor] = useState('')
     const [receiver, setReceiver] = useState('')
+    const type_trans = 'TRANSFERENCIA'
+    // const rec = parseInt(receiver)
 
     const [fontsLoaded] = useFonts({
         'Archivo-Bold': require('../../assets/fonts/Archivo-Bold.ttf')
@@ -26,33 +27,33 @@ export default function Transaction({navigation}){
     }
 
     const handleTransfer = async () => {
-        try {
-            if (login) {
-                console.log(login);
-                // nexusAPI.defaults.headers.common.Authorization = `Token ${authToken}`;
+        try{
+            if(authToken){
+            console.log(authToken)
+            nexusAPI.defaults.headers.common.Authorization = `Token ${authToken}`;
+            const clientResponse = await nexusAPI.get('auth/users/me/');
+            const clientId = clientResponse.data.id;
+            
+            const accountResponse = await nexusAPI.get(`api/v1/account/${clientId}`);
+            const accountId = accountResponse.data.id;
+            console.log(accountId)
 
-                const clientResponse = await nexusAPI.get('auth/users/me/');
-                const clientId = clientResponse.data.id
-                const accountResponse = await nexusAPI.get(`api/v1/account/${clientId}`);
-                setSaldo(accountResponse.data.saldo)
-
-                const response = await nexusAPI.post('api/v1/transaction/', {
-                    id_cliente: clientId,
-                    valor: valor,
-                    transaction_type: 'TRANSFERENCIA',
-                    conta_receiver: receiver
-                  }, {
-                    headers: {
-                      Authorization: `Token ${authToken}`,
-                    },
-                  });
-
+            const requestResponse = await nexusAPI.post(`api/v1/transaction/`, {
+                id_cliente: accountId,
+                valor: valor,
+                transaction_type: type_trans,
+                conta_receiver: receiver
+              }, {
+                headers: {
+                  'Authorization': `Token ${authToken}`,
+                  'Content-Type': 'application/json'
+                }
+              });
+              Alert.alert(requestResponse.data)
             }
-            else{
-                console.log(Error)
-            }
-        } catch (error) {
-          console.error('Erro ao efetuar transferência:', error.response ? error.response.data : error.message);
+            
+        }catch (error) {
+            console.error('Erro ao obter dados do usuário:', error.response ? error.response.data : error.message);
         }
       };
 
