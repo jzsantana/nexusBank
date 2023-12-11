@@ -11,9 +11,10 @@ const windowHeight = Dimensions.get('window').height;
 
 export default function Loan({navigation}){
     const { authToken } = useAuth()
-    const [ valor, setValor ] = useState('')
-    const [ salario, setSalario ] = useState('')
-    const [ parcelas, setParcelas ] = useState('')
+    const [ valor, setValor ] = useState("")
+    const [ salario, setSalario ] = useState("")
+    const [ parcelas, setParcelas ] = useState()
+    const parcela = parseInt(parcelas)
     
     const [fontsLoaded] = useFonts({
         'Archivo-Bold': require('../../assets/fonts/Archivo-Bold.ttf')
@@ -34,9 +35,9 @@ export default function Loan({navigation}){
             const accountId = accountResponse.data.id;
             console.log(accountId)
 
-            await nexusAPI.post(`api/v1/loan/`, {
+            const requestResponse = await nexusAPI.post(`api/v1/loan/`, {
                 valor_solicitado: valor,
-                parcelas: parcelas,
+                parcelas: parcela,
                 salario: salario,
                 id_cliente: accountId
               }, {
@@ -45,15 +46,19 @@ export default function Loan({navigation}){
                   'Content-Type': 'application/json'
                 }
               });
-              Alert.alert('Seu emprestimo foi concedido com sucesso!')
+              console.log('Dados do empréstimo:', {
+                valor_solicitado: valor,
+                parcelas: parcelas,
+                salario: salario,
+                id_cliente: accountId
+              });
             }
-            
+            Alert.alert('Seu emprestimo foi concedido com sucesso!')
         }catch (error) {
             console.error('Erro ao obter dados do usuário:', error.response ? error.response.data : error.message);
         }
     }
    
-
     return(
         <View style={[styles.containerPrincipal, {width: windowWidth, height: windowHeight}]}>
             <View style={styles.cardContainer}>
