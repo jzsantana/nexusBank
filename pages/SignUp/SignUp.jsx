@@ -27,23 +27,10 @@ function SignUp() {
     }    
 
     return (
-       <SafeAreaView style={[styles.containerPrincipal, {width: windowWidth, height: windowHeight}]} animation='fadeIn' delay={500}>
-        <Animatable.Text animation='fadeIn' delay={500} 
-            style={{
-                fontSize: 20, 
-                fontWeight: 500
-            }}
-            >Cadastro</Animatable.Text>
-
+       <View style={[styles.containerPrincipal, {width: windowWidth, height: windowHeight}]} animation='fadeIn' delay={500}>
         <ScrollView  animation='fadeInUp' delay={500} style={styles.containerContent}>
-                <View 
-                    style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        width: '100%',
-                        gap: 10,
-                        height: '10%'
-                        }}>
+                <View style={{display: 'flex', flexDirection: 'column',
+                    width: '100%',gap: 10,height: '10%'}}>
                     <Text htmlFor="" style={{color: '#fff', fontWeight: 600, fontSize: 17}}>CPF</Text>
                     <TextInput
                             style={styles.input}
@@ -52,9 +39,7 @@ function SignUp() {
                     ></TextInput>
                 </View>
                 
-                    <View
-                        style={styles.containerInputs}
-                    >
+                    <View style={styles.containerInputs}>
                         <Text style={{color: '#fff', fontWeight: 600, fontSize: 17}}>Nome Completo</Text>
                         <TextInput 
                             style={styles.input}
@@ -74,11 +59,9 @@ function SignUp() {
                         ></TextInput>
                     </View>
 
-                    <View
-                        style={{ display: 'flex', flexDirection: 'row',
-                            width: '100%', height: '10%', gap: 35
-                        }}
-                    >
+                    <View style={{ display: 'flex', flexDirection: 'row',
+                            width: '100%', height: '10%', gap: 35}}>
+                        
                         <View 
                             style={{
                                 display: 'flex',
@@ -254,14 +237,12 @@ function SignUp() {
                         ></TextInput>
                     </View>
 
-                    <Pressable 
-                        style={styles.btnEntrar}
-                        
-                        >
-                        <Text style={[{fontFamily: 'Archivo-Black', color: '#141414'}, styles.btnEntrarTexto]}>Login</Text>
-                    </Pressable>
+                    
             </ScrollView>
-       </SafeAreaView>
+                <Pressable style={styles.btnEntrar} >
+                    <Text style={[{fontFamily: 'Archivo-Black', color: '#141414'}, styles.btnEntrarTexto]}>Login</Text>
+                </Pressable>
+       </View>
     );
 }
 

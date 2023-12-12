@@ -163,9 +163,11 @@ function UserPage({navigation}) {
                 </View>
                 
                 <View style={styles.containerGeneralOptions}>
-                    <Pressable style={styles.containerOpcoesMaiores}>
-                        <MaterialCommunityIcons name='barcode-scan' size={32} color='#92AAFF'/>
-                        <Text style={{color: '#92AAFF'}}>Pagar</Text>
+                    <Pressable style={styles.containerOpcoesMaiores}
+                        onPress={() => (navigation.navigate('CreditCard'))}
+                    >
+                        <MaterialCommunityIcons name='credit-card-plus-outline' size={32} color='#92AAFF'/>
+                        <Text style={{color: '#92AAFF'}}>Solicitar Cartão</Text>
                     </Pressable>
                         
                     

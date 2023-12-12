@@ -7,19 +7,20 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         gap: 10,
         justifyContent: 'center',
-        alignItems: 'center'
+       
         },
     input:{
         width: '80%',
         height: 40,
     },
     containerContent:{
-        borderTopStartRadius:100,
         width: '100%',
-        height: '100%',
-        backgroundColor: '#9DB1F8',
+        height: '90%',
+        backgroundColor: '#111111',
         display: 'flex',
+        // justifyContent: 'center',
         padding: 15,
+        flex: 1
     },
     input:{
         width: '100%',
@@ -39,19 +40,23 @@ const styles = StyleSheet.create({
         marginTop: 25,
         padding: 5,
         width: 200,
-        height: 40,
-        backgroundColor: '#111111',
+        height: 50,
+        backgroundColor: '#9DB1F8',
         display: 'flex',
         justifyContent: 'center',
         alignSelf: 'center',
-        borderRadius: 15,
+        borderRadius: 10,
         alignItems: 'center'
     },
     btnEntrarTexto:{
         fontSize: 18,
          color: '#fff'
+    },
+    containerForm:{
+        backgroundColor: '#a70',
+        width: '90%',
+        height: '90%'
     }
-
 })
 
 export default styles
