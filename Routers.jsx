@@ -1,7 +1,6 @@
 import React from 'react'
-import { DrawerActions,NavigationContainer } from '@react-navigation/native'
+import {NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Welcome from './pages/Welcome/Welcome'
 import Splash from './pages/Splash/Splash'
 import SignIn from './pages/SignIn/SignIn'

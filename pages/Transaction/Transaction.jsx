@@ -35,18 +35,29 @@ export default function Transaction({navigation}){
             const accountId = accountResponse.data.id;
             console.log(accountId)
 
-            const requestResponse = await nexusAPI.post(`api/v1/transaction/`, {
-                id_cliente: accountId,
-                valor: valor,
-                transaction_type: type_trans,
-                conta_receiver: rec
-              }, {
-                headers: {
-                  'Authorization': `Token ${authToken}`,
-                  'Content-Type': 'application/json'
+            if (valor == 0){
+                Alert.alert('', 'O valor da transferencia não pode ser 0 (zero)', [
+                    {
+                        text: 'ENTENDI!',
+                        style: 'destructive',
+                        onPress: () => {}
+                    }
+                ])
+            }
+            else{
+                const requestResponse = await nexusAPI.post(`api/v1/transaction/`, {
+                    id_cliente: accountId,
+                    valor: valor,
+                    transaction_type: type_trans,
+                    conta_receiver: rec
+                  }, {
+                    headers: {
+                      'Authorization': `Token ${authToken}`,
+                      'Content-Type': 'application/json'
+                    }
+                  });
+                  Alert.alert(requestResponse.data.message)
                 }
-              });
-              Alert.alert(requestResponse.data.message)
             }
             
         }catch (error) {

@@ -1,6 +1,10 @@
-import {View, Text, Dimensions, Pressable, TextInput, KeyboardAvoidingView} from 'react-native'
+import {View, Text, Dimensions, Pressable, TextInput, KeyboardAvoidingView, Alert} from 'react-native'
 import styles from './styles'
 import { useFonts } from 'expo-font';
+import { useAuth } from '../Contexts/auth';
+import { useState } from 'react';
+import nexusAPI from '../../services/api';
+
 
 
 const windowWidth = Dimensions.get('window').width;

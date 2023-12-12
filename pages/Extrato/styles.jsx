@@ -9,25 +9,35 @@ const styles = StyleSheet.create({
     },
     cardContainer:{
         backgroundColor: '#000',
-        width: '90%',
+        width: '95%',
         height: '80%',
         borderRadius: 15,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column',
-        gap: 15
+        padding: 15,
+        
     },
     cardsUser:{
-        width: '93%',
+        flex: 1,
+        width: '100%',
         height: '10%',
         backgroundColor: '#fff',
         display: "flex",
-        // alignItems: 'center',
-        // justifyContent:'space-between',
+        alignItems: 'center',
+        justifyContent:'space-between',
         borderRadius: 10,
         padding: 15,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        gap: 10,
+        marginTop: 10
+    },
+    flatlist:{
+        width: '100%',
+        width: '100%',
+        display: 'flex',
+
     }
 })
 

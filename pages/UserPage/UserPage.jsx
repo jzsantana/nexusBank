@@ -35,8 +35,9 @@ function UserPage({navigation}) {
           setUserName(clientResponse.data.name);
 
           const accountResponse = await nexusAPI.get(`api/v1/account/${clientId}`);
-          setSaldo(accountResponse.data.saldo)
+
           setNumConta(accountResponse.data.account_number)
+        setSaldo(accountResponse.data.saldo)
           
         }
       } catch (error) {
@@ -46,6 +47,8 @@ function UserPage({navigation}) {
 
     fetchData();
   }, [authToken]);
+
+  
 
     const [fontsLoaded] = useFonts({
         'Archivo-Bold': require('../../assets/fonts/Archivo-Bold.ttf')

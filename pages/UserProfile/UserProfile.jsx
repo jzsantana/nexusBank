@@ -54,21 +54,13 @@ export default function UserProfile({navigation}){
                     <View style={styles.profilePicture}>
                         <Image source={{uri:(image)}} style={styles.img}></Image>
                     </View>
-
-                    <Pressable 
-                        style={styles.buttonProfilePicture}
-                    >
-                            <Text style={{fontWeight: 500, fontFamily: 'Archivo-Bold'}}>Trocar foto de perfil</Text>
-                    </Pressable>
                 </View>
 
                 <View style={styles.containerInfos}>
                     <Text style={{color: 'white', fontSize: 15}}>{userName}</Text>
                     <Text style={{color: 'white', fontSize: 15}}>Conta: {numConta} </Text>
                 </View>
-
             </View>
-
         </View>       
     )
 }
