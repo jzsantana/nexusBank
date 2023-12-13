@@ -1,4 +1,4 @@
-import { View, Text, TextInput, Pressable, KeyboardAvoidingView } from 'react-native'
+import { View, Text, TextInput, Pressable, KeyboardAvoidingView, Alert } from 'react-native'
 import * as Animatable from 'react-native-animatable';
 import styles from "./styles"
 import { useFonts } from 'expo-font';
@@ -30,10 +30,15 @@ function SignIn({navigation}) {
 
         const { auth_token } = response.data;
         login(auth_token);
-            navigation.navigate('UserPage');
-
+            if (response.status == 200){
+                navigation.navigate('UserPage');
+            }
+            // if (response.status == 400){
+            //     Alert.alert(response.data.message)
+            // }
         } catch (error) {
-        console.error('Erro ao fazer login:', error.response ? error.response.data : error.message);
+            Alert.alert('erro ao efetuar o login: ', error.response.data.message)
+            console.log(error.response.data.message)
         }
     };
   
